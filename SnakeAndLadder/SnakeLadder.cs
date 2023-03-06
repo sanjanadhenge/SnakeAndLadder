@@ -10,6 +10,13 @@ namespace SnakeAndLadder
     {
         //UC1
         int playerPosition =  0;
+        //UC2
+        Random random = new Random();
+        public void DieRoll()
+        {
+            int die = random.Next(1, 7);
+            Console.WriteLine(die);
+        }
 
     }
 }

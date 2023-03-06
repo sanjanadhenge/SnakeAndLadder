@@ -6,7 +6,8 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to SnakeAndLadder Game");
-            SnakeLadder snakeLadder = new SnakeLadder();    
+            SnakeLadder snakeLadder = new SnakeLadder();
+            snakeLadder.DieRoll();
         }
     }
 }
