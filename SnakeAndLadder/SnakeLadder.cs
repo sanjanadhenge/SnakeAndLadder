@@ -9,13 +9,30 @@ namespace SnakeAndLadder
     public class SnakeLadder
     {
         //UC1
-        int playerPosition =  0;
+        const int No_Play = 0, Ladder=1, Snake=2;
+        int playerPosition = 0;
         //UC2
         Random random = new Random();
-        public void DieRoll()
+        public int DieRole()
         {
             int die = random.Next(1, 7);
-            Console.WriteLine(die);
+                return die;
+        }
+        //UC3
+        public void Game()
+        {
+            int option =random.Next(0,3);
+            switch(option)
+            {
+                case No_Play:
+                    break;
+                case Ladder :
+                    this.playerPosition += DieRole();
+                    break;
+                case Snake:
+                    this.playerPosition -= DieRole();
+                    break;
+            }
         }
 
     }
