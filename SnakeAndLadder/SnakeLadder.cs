@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace SnakeAndLadder
     public class SnakeLadder
     {
         //UC1
-        const int No_Play = 0, Ladder=1, Snake=2;
+        const int No_Play = 0, Ladder = 1, Snake = 2, Winning_Position = 100;
         int playerPosition = 0;
         //UC2
         Random random = new Random();
@@ -21,18 +22,28 @@ namespace SnakeAndLadder
         //UC3
         public void Game()
         {
-            int option =random.Next(0,3);
-            switch(option)
+            while (this.playerPosition < Winning_Position)
             {
-                case No_Play:
-                    break;
-                case Ladder :
-                    this.playerPosition += DieRole();
-                    break;
-                case Snake:
-                    this.playerPosition -= DieRole();
-                    break;
+                int option = random.Next(0, 3);
+                switch (option)
+                {
+                    case No_Play:
+                        break;
+                    case Ladder:
+                        this.playerPosition += DieRole();
+                        break;
+                    case Snake:
+                        int dieRole = DieRole();
+                        if (this.playerPosition - dieRole > 0) 
+                        {
+                            this.playerPosition -= DieRole();
+                           
+                        }
+                        break; 
+                }
+                Console.WriteLine("Player Position : " + playerPosition);
             }
+            Console.WriteLine("Player Position : " + playerPosition);
         }
 
     }
