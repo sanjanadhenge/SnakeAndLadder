@@ -11,12 +11,13 @@ namespace SnakeAndLadder
     {
         //UC1
         const int No_Play = 0, Ladder = 1, Snake = 2, Winning_Position = 100;
-        int playerPosition = 0;
+        int playerPosition = 0,count = 0;
         //UC2
         Random random = new Random();
         public int DieRole()
         {
             int die = random.Next(1, 7);
+            count++;
                 return die;
         }
         //UC3
@@ -46,6 +47,7 @@ namespace SnakeAndLadder
             if (this.playerPosition == Winning_Position)
             {
                 Console.WriteLine("Player Position : " + playerPosition);
+                Console.WriteLine("Die Count : " + count);
             }
          }
 
