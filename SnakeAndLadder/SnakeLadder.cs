@@ -21,7 +21,7 @@ namespace SnakeAndLadder
                 return die;
         }
         //UC3
-        public void Game()
+        public int Game()
         {
             while (this.playerPosition < Winning_Position)
             {
@@ -31,7 +31,7 @@ namespace SnakeAndLadder
                     case No_Play:
                         break;
                     case Ladder:
-                        this.playerPosition += DieRole();
+                        this.playerPosition = 0;
                         break;
                     case Snake:
                         int dieRole = DieRole();
@@ -43,12 +43,21 @@ namespace SnakeAndLadder
                         break; 
                 }
             }
-            if (this.playerPosition == Winning_Position)
-            {
-                Console.WriteLine("Player Position : " + playerPosition);
-                Console.WriteLine("Die Count : " + count);
-            }
+            return playerPosition;
          }
+        public void CheckWinner(int p1 , int p2)
+        {
+            if( p1 == 100 )
+            {
+                Console.WriteLine("Player1 is Winner");
+            }
+            else
+            {
+                Console.WriteLine("Player2 is Winner");
+            }
+        }
+
 
     }
+
 }
